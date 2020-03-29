@@ -1,0 +1,77 @@
+a{
+    font-size: 25px;
+    text-align: center;
+    padding: 5px;
+}
+
+.content{
+    margin: auto;
+}
+
+.clear{
+    clear: both;
+}
+
+.card{
+    float: left;
+    margin: 15px;
+}
+
+.fa-pencil{
+    color: orange;
+}
+
+.fa-trash{
+    color: red;
+}
+
+.title{
+    text-align: center;
+}
+
+table {
+    min-width: 100%;
+    table-layout: fixed;
+}
+
+thead{
+    font-size: 24px;
+}
+
+td, th {
+    border: 2px solid #dedfe0;
+    word-wrap: break-word;         /* All browsers since IE 5.5+ */
+    overflow-wrap: break-word;
+    font-weight: normal;
+    max-width: 250px;
+}
+
+td.title{
+    width: 20%;
+    text-align: left;
+}
+td.description{
+    width: 60%;
+}
+
+td.date{
+    width: 10%;
+}
+
+td.controls{
+    width: 10%;
+}
+
+.back-button{
+    float: left;
+    margin: 5px;
+}
+
+.menu-select{
+    float: left;
+    margin: 15px;
+}
+.search-form{
+    float: right;
+    margin: 15px;
+}
