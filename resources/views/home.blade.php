@@ -6,9 +6,10 @@
 <div class="wrap-content">
     <h2 class="title">@isset($day) Task of {{ $day }} @else Current tasks @endisset </h2>
     <div class="menu-select">
-        <a href="/" class="btn btn-primary">Today's task</a>
+        <a href="/listall" class="btn btn-primary">List all tasks</a>
         <a href="/checked" class="btn btn-success">Checked task</a>
-        <a href="/unchecked" class="btn btn-warning">Unchecked task</a>
+        <a href="/unchecked" class="btn btn-secondary">Unchecked task</a>
+        <a href="/notes" class="btn btn-warning">Notes</a>
         <a href="/rewards" type="button" class="btn btn-light">
             Rewards @isset($rewards) @if(count($rewards) != 0)<span class="badge badge-danger">{{ count($rewards) }}</span> @endif @endisset
         </a>
@@ -45,8 +46,8 @@
         @else
             <a href="/check/{{ $t->id }}"><i class="fa fa-check-circle" style="color: green;"></i></a>
         @endif
-            <a href="/edit/{{ $t->id }}"><i class="fa fa-pencil"></i></a>
-            <a href="/delete/{{ $t->id }}"><i class="fa fa-trash"></i></a>
+            <a href="/edit/task/{{ $t->id }}"><i class="fa fa-pencil"></i></a>
+            <a href="/delete/task/{{ $t->id }}"><i class="fa fa-trash"></i></a>
       </td>
     </tr>
     @endforeach

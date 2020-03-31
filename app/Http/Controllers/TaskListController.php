@@ -57,7 +57,8 @@ class TaskListController extends Controller
      */
     public function create()
     {
-        return view('newtask');
+        $today = Carbon::today()->toDateString();
+        return view('newtask', ['today' => $today]);
     }
 
     /**

@@ -14,7 +14,8 @@
 <div class="jumbotron">
         <h1 class="display-4">Task List Application</h1>
         <p class="lead">
-            <a href="new" class="btn btn-primary">New task</a>
+            <a href="/new/task" class="btn btn-primary">New task</a>
+            <a href="/new/note" class="btn btn-warning">New note</a>
         </p>
     </div>
     @yield('content')

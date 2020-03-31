@@ -3,10 +3,10 @@
 @section('content')
 <a href="/" class="back-button btn btn-primary">Back</a>
 <div class="content w-50 center">
-<form action="/update/{{ $task->id }}" method="POST">
+<form action="/update/task/{{ $task->id }}" method="POST">
     @csrf
     <h2 class="title">Add new task</h2>
-        <div class="form-group">
+    <div class="form-group">
         <label>Title</label>
         <input type="text" class="form-control" placeholder="Title of the task" name="title" value="{{ $task->title }}">
     </div>
@@ -19,7 +19,7 @@
         <input type="text" class="form-control" name="reward" placeholder="Reward for completing your task" value="{{ $task->reward }}">
     </div>
     <div class="form-group">
-        <label>Data to do the task</label>
+        <label>Date to do the task</label>
         <input type="date" class="form-control" name="date" value="{{ $task->date }}">
     </div>
     <input type="submit" class="btn btn-primary" name="action" value="Register!">

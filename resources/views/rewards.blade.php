@@ -5,8 +5,6 @@
 <h2 class="title">Available Rewards</h2>
     <div class="menu-select">
         <a href="/" class="btn btn-primary">Today's task</a>
-        <a href="/checked" class="btn btn-success">Checked task</a>
-        <a href="/unchecked" class="btn btn-warning">Unchecked task</a>
         <a href="/rewards" type="button" class="btn btn-light">
             Rewards @isset($rewards) @if(count($rewards) != 0)<span class="badge badge-danger">{{ count($rewards) }}</span> @endif @endisset
         </a>

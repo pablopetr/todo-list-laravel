@@ -14,15 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'TaskListController@listToday')->name('home');
+Route::get('/notes', 'NoteListController@index')->name('notes');
 Route::get('/listall', 'TaskListController@index')->name('listAll');
 Route::post('/search', 'TaskListController@listByDate');
 Route::get('/checked', 'TaskListController@checked');
 Route::get('/unchecked', 'TaskListController@unchecked');
 Route::get('/rewards', 'TaskListController@rewards');
-Route::get('/new', 'TaskListController@create');
-Route::post('/new', 'TaskListController@store');
-Route::get('/edit/{id}', 'TaskListController@edit');
+Route::get('/new/task', 'TaskListController@create');
+Route::get('/new/note', 'NoteListController@create');
+Route::post('/new/task', 'TaskListController@store');
+Route::post('/new/note', 'NoteListController@store');
+Route::get('/edit/task/{id}', 'TaskListController@edit');
+Route::get('/edit/note/{id}', 'NoteListController@edit');
 Route::get('/check/{id}', 'TaskListController@check');
 Route::get('/rewardcheck/{id}', 'TaskListController@rewardcheck');
-Route::post('/update/{id}', 'TaskListController@update');
-Route::get('/delete/{id}', 'TaskListController@destroy');
+Route::post('/update/task/{id}', 'TaskListController@update');
+Route::post('/update/note/{id}', 'NoteListController@update');
+Route::get('/delete/task/{id}', 'TaskListController@destroy');
+Route::get('/delete/note/{id}', 'NoteListController@destroy');
