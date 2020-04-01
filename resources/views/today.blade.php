@@ -3,9 +3,12 @@
 @section('content')
 
 <div class="wrap-content">
-    <h2 class="title">Today's task</h2>
+    <div class="title">
+        <h1>Today's task</h1>
+        <h3 class="workout">You worked {{ $totalWorkedTime }} today</h3>
+  </div>
     <div class="menu-select">
-    <a href="/listall" class="btn btn-primary">List all tasks</a>
+        <a href="/listall" class="btn btn-primary">List all tasks</a>
         <a href="/checked" class="btn btn-success">Checked task</a>
         <a href="/unchecked" class="btn btn-secondary">Unchecked task</a>
         <a href="/notes" class="btn btn-warning">Notes</a>
@@ -42,7 +45,7 @@
         @if($t->check == 0)
             <a href="/check/{{ $t->id }}"><i class="fa fa-check-circle" style="color: #c7d1c9;"></i></a>
         @else
-            <a href="/check/{{ $t->id }}"><i class="fa fa-check-circle" style="color: green;"></i></a>
+            <a href="/check/{{ $t->id }}"><i class="fa fa-check-circle" style="color: green;" title="You work {{ $t->finish_time }} to finish this task"></i></a>
         @endif
             <a href="/edit/task/{{ $t->id }}"><i class="fa fa-pencil"></i></a>
             <a href="/delete/task/{{ $t->id }}"><i class="fa fa-trash"></i></a>
