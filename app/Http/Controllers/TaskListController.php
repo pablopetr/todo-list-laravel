@@ -20,17 +20,44 @@ class TaskListController extends Controller
         return view('home', ['taskList' => $taskList]);
     }
 
-    public function listToday(){
+    public static function getWorkedToday(){
         $today = Carbon::today()->toDateString();
+        $tasks = TaskList::where('date', '=', $today)->get();
+        $time = '00:00:00';
+        foreach($tasks as $key => $value){
+            $checked = Date('H:i:s', strtotime($value->finish_time));
+            $seconds = strtotime($time) + strtotime($checked);
+            $time = Date('H:i:s', $seconds);
+            
+        }
+        return $time;
+    }
+
+    public static function getWorkedByDate($date){
+        $tasks = TaskList::where('date', '=', $date)->get();
+        $time = '00:00:00';
+        foreach($tasks as $key => $value){
+            $finish_time = Date('H:i:s', strtotime($value->finish_time));
+            $seconds = strtotime($time) + strtotime($finish_time);
+            $time = Date('H:i:s', $seconds);
+        }
+        return $time;
+    }
+
+    public function listToday(){ 
+        $today = Carbon::now();
         $rewards = TaskList::where('check', '=', 1)->where('reward_check', '=', 0)->get();
         $taskList = TaskList::whereDate('date', '=', $today)->get();
-        return view('today', ['taskList' => $taskList, 'rewards' => $rewards]);
+        $workedTime = $this::getWorkedToday();
+        return view('today', ['taskList' => $taskList, 'rewards' => $rewards, 'totalWorkedTime' => $workedTime]);
+
     }
 
     public function listByDate(Request $request){
         $date = $request->date;
         $taskList = TaskList::whereDate('date', '=', $date)->get();
-        return view('home', ['taskList' => $taskList, 'day' => $date]);
+        $workedTime = $this::getWorkedByDate($date);
+        return view('home', ['taskList' => $taskList, 'day' => $date, 'totalWorkedTime' => $workedTime]);
     }
 
     public function checked(){
@@ -78,16 +105,29 @@ class TaskListController extends Controller
         //return view('home', ['taskList' => $taskList]);
     }
 
-    public function check($id){ 
+    public function check($id){
         $task = TaskList::find($id);
         if($task->check == 0){
-            $task->check = 1;
+            return view('executingtask', ['name' => $task->title]);
         }else{
             $task->check = 0;
+            $task->finish_time = null;
         }
         $task->save();
         return back();
     }
+
+    public function checkTask(Request $request, $id){
+        $task = TaskList::find($id);
+        $task->finish_time = $request->timervalue;
+        $task->check = 1;
+        $task->save();
+        $today = Carbon::today()->toDateString();
+        $rewards = TaskList::where('check', '=', 1)->where('reward_check', '=', 0)->get();
+        $taskList = TaskList::whereDate('date', '=', $today)->get();
+        return redirect()->route('home', ['taskList' => $taskList, 'rewards' => $rewards]);
+    }
+
 
     public function rewardcheck($id){
         $task = TaskList::find($id);

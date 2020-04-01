@@ -21,6 +21,7 @@ class CreateTaskListsTable extends Migration
             $table->boolean('reward_check')->default(0);
             $table->date('date');
             $table->boolean('check')->default(0);
+            $table->time('finish_time')->nullable();
             $table->timestamps();
         });
     }

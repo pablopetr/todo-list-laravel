@@ -4,9 +4,18 @@
 
 
 <div class="wrap-content">
-    <h2 class="title">@isset($day) Task of {{ $day }} @else Current tasks @endisset </h2>
+    <div class="title">
+        <h1>@isset($day) Tasks of {{ $day }} @else All tasks @endisset</h1>
+        <h3 class="workout">
+          @isset($day)
+            @isset($totalWorkedTime)
+                You worked {{ $totalWorkedTime }} at {{$day}}
+            @endisset
+          @endisset
+        </h3>
+    </div>
     <div class="menu-select">
-        <a href="/listall" class="btn btn-primary">List all tasks</a>
+        <a href="/" class="btn btn-primary">Todays task</a>
         <a href="/checked" class="btn btn-success">Checked task</a>
         <a href="/unchecked" class="btn btn-secondary">Unchecked task</a>
         <a href="/notes" class="btn btn-warning">Notes</a>
@@ -44,7 +53,7 @@
         @if($t->check == 0)
             <a href="/check/{{ $t->id }}"><i class="fa fa-check-circle" style="color: #c7d1c9;"></i></a>
         @else
-            <a href="/check/{{ $t->id }}"><i class="fa fa-check-circle" style="color: green;"></i></a>
+            <a href="/check/{{ $t->id }}"><i class="fa fa-check-circle" style="color: green;" title="You work {{ $t->finish_time }} to finish this task"></i></a>
         @endif
             <a href="/edit/task/{{ $t->id }}"><i class="fa fa-pencil"></i></a>
             <a href="/delete/task/{{ $t->id }}"><i class="fa fa-trash"></i></a>

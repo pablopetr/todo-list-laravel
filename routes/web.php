@@ -27,6 +27,7 @@ Route::post('/new/note', 'NoteListController@store');
 Route::get('/edit/task/{id}', 'TaskListController@edit');
 Route::get('/edit/note/{id}', 'NoteListController@edit');
 Route::get('/check/{id}', 'TaskListController@check');
+Route::post('/check/{id}', 'TaskListController@checkTask');
 Route::get('/rewardcheck/{id}', 'TaskListController@rewardcheck');
 Route::post('/update/task/{id}', 'TaskListController@update');
 Route::post('/update/note/{id}', 'NoteListController@update');

@@ -12,8 +12,10 @@ a{
     clear: both;
 }
 
-.notes{
-
+.center{
+    max-width: 1280px;
+    padding: 0 2%;
+    margin: 0 auto;
 }
 
 .notes .card{
@@ -96,8 +98,34 @@ td.controls{
     float: left;
     margin: 15px;
 }
+
+.wrap-content > .title{
+    width: 100%;
+    display: inline-block;
+}
+
+.workout{
+    float: right;
+    font-weight: 300;
+    margin-right: 25px;
+}
+
 .search-form{
     float: right;
     margin: 15px;
 }
 
+.timer{
+    text-align: center;
+    
+}
+
+#timer-button{
+    float: left;
+    margin-left: calc(50% - 28px);
+    margin-right: 5px;
+}
+
+#timer-form{
+    float: left;
+}
