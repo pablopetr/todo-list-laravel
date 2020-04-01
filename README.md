@@ -2,6 +2,7 @@
 
 Todo list built with PHP and Laravel to management of daily tasks and rewards.
 
+<<<<<<< HEAD
 ## Motivation
 
 I was having some big problems with tasks and rewards wasting most time organizating these tasks in papers. This web application was built to solve this problem with simple solution and to train my skills with PHP and to improve my understand of CRUD and RESTFul API
@@ -19,3 +20,8 @@ I was having big problems with tasks and rewards wasting most time organizating 
 4. Notes. You can add notes to remember something, about the tasks or something to improve your job.
 5. Rewards. When you add a task you need to define a reward, then when you finish this task you gain this reward to motivate your efforts.
 6. Time worked by date. The system provides you a control of how many time you worked today, yesterday or any date that you had tasks registered. 
+=======
+## Motivation
+
+I was having some big problems with tasks and rewards wasting most time organizating these tasks in papers. This web application was built to solve this problem with simple solution and to train my skills with PHP and to improve my understand of CRUD and RESTFul API
+>>>>>>> 61d492b7e7328787cd01161debdf259c3893481f
